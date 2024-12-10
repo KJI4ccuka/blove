@@ -25,7 +25,7 @@ function RootInner({ children }: PropsWithChildren) {
   const lp = useLaunchParams()
   const debug = isDev || lp.startParam === 'debug'
   const isBrowser = typeof window !== 'undefined'
-  const bot = isBrowser ? window.Telegram.WebApp : null
+  const bot = isBrowser ? window?.Telegram?.WebApp : null
 
   // Initialize the library.
   useClientOnce(() => {
@@ -74,5 +74,8 @@ export function Root(props: PropsWithChildren) {
     <ErrorBoundary fallback={Error}>
       <RootInner {...props} />
     </ErrorBoundary>
-  ) : <div className="root__loading">Loading</div>
+  ) : <div className={'absolute text-lg font-medium text-foreground flex justify-center items-center w-full h-full'}
+  >
+     Loading...
+  </div>
 }

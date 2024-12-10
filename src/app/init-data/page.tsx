@@ -30,6 +30,7 @@ export default function InitDataPage() {
     if (!initDataState || !initDataRaw) {
       return;
     }
+
     const {
       authDate,
       hash,
