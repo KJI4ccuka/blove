@@ -42,9 +42,9 @@ function RootInner({ children }: PropsWithChildren) {
 
   useEffect(() => {
     if (bot) {
-      // Проверяем, не расширено ли уже приложение
+
       if (!bot.isExpanded) {
-        bot.expand() // Разворачиваем на весь экран
+        bot.expand()
       }
 
       // bot.setBackgroundColor("#ffffff") // Цвет фона
