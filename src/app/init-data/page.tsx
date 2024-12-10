@@ -1,14 +1,11 @@
 'use client';
 
-import { useMemo } from 'react';
-import { useSignal, initData, type User } from '@telegram-apps/sdk-react';
-import { List, Placeholder } from '@telegram-apps/telegram-ui';
+import { useMemo } from 'react'
+import { initData, type User, useSignal } from '@telegram-apps/sdk-react'
+import { List, Placeholder } from '@telegram-apps/telegram-ui'
 
-import {
-  DisplayData,
-  type DisplayDataRow,
-} from '@/components/DisplayData/DisplayData';
-import { Page } from '@/components/Page';
+import { DisplayData, type DisplayDataRow } from '@/shared/components/display-data/display-data'
+import { Page } from '@/shared/components/page'
 
 function getUserRows(user: User): DisplayDataRow[] {
   return [

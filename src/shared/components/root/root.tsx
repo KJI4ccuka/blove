@@ -5,8 +5,8 @@ import { initData, miniApp, useLaunchParams, useSignal } from '@telegram-apps/sd
 import { TonConnectUIProvider } from '@tonconnect/ui-react'
 import { AppRoot } from '@telegram-apps/telegram-ui'
 
-import { ErrorBoundary } from '@/components/ErrorBoundary'
-import { ErrorPage } from '@/components/ErrorPage'
+import { ErrorBoundary } from '@/shared/components/error-boundary'
+import { Error } from '@/shared/components/error'
 import { useTelegramMock } from '@/hooks/useTelegramMock'
 import { useDidMount } from '@/hooks/useDidMount'
 import { useClientOnce } from '@/hooks/useClientOnce'
@@ -71,7 +71,7 @@ export function Root(props: PropsWithChildren) {
   const didMount = useDidMount()
 
   return didMount ? (
-    <ErrorBoundary fallback={ErrorPage}>
+    <ErrorBoundary fallback={Error}>
       <RootInner {...props} />
     </ErrorBoundary>
   ) : <div className="root__loading">Loading</div>
