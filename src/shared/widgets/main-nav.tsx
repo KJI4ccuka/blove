@@ -10,11 +10,11 @@ interface IProps {
   className?: string
 }
 
-const tabs = [
+const NAV_ITEMS = [
   {
     id: 'Liked',
     text: 'Liked',
-    href: '',
+    href: 'registration',
     Icon: Icon24Heart
   },
   {
@@ -32,7 +32,7 @@ const tabs = [
 ]
 
 export const Navigation: React.FC<IProps> = ({ className }) => {
-  const [currentTab, setCurrentTab] = useState(tabs[1].id)
+  const [currentTab, setCurrentTab] = useState(NAV_ITEMS[1].id)
   const router = useRouter()
 
   const handleTabClick = (id: string, href: string) => {
@@ -42,7 +42,7 @@ export const Navigation: React.FC<IProps> = ({ className }) => {
 
   return (
     <Tabbar>
-      {tabs.map(({ id, text, href, Icon }) => (
+      {NAV_ITEMS.map(({ id, text, href, Icon }) => (
         <Tabbar.Item
           key={id}
           text={text}
