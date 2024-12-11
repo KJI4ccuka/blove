@@ -1,46 +1,19 @@
 'use client'
 
-import { Avatar, Input, List, Multiselect, Section, Tappable } from '@telegram-apps/telegram-ui'
+import { Input, List, Multiselect, Section, Tappable } from '@telegram-apps/telegram-ui'
 
 import { Page } from '@/shared/components/page'
 import { Icon24Close } from '@telegram-apps/telegram-ui/dist/icons/24/close'
 import { useState } from 'react'
 import { initData, useSignal } from '@telegram-apps/sdk-react'
 import { Container } from '@/shared/components/ui/container'
+import { UserAvatar } from '@/shared/components/ui/avatar'
 
 export default function InitDataPage() {
   const [value, setValue] = useState('')
   const [gender, setGender] = useState<any>()
   const initDataState = useSignal(initData.state)
 
-  if (!initDataState?.user?.username) {
-    return
-  }
-
-  const {
-    username,
-    photoUrl,
-    firstName,
-    lastName
-  } = initDataState.user
-
-  const getUserName = function() {
-    let userAcronym = ''
-
-    if (firstName) {
-      userAcronym = firstName
-    }
-
-    if (lastName) {
-      userAcronym = userAcronym + lastName
-    }
-
-    if (!userAcronym && username) {
-      userAcronym = username
-    }
-
-    return userAcronym.toUpperCase()
-  }
 
   const genderOptions = [
     { value: 'Male', label: 'Male' },
@@ -51,18 +24,13 @@ export default function InitDataPage() {
     <Page>
       <Container className={'flex flex-col items-center pt-4'}>
 
-        <Avatar
-          size={96}
-          src={photoUrl}
-          acronym={getUserName()}
-        />
+        <UserAvatar/>
 
         <List className={'w-full'}>
           <Section
             header="Personal Information"
           >
             <Input
-
               header="Your name"
               placeholder={initDataState?.user?.username}
               value={value} onChange={e => setValue(e.target.value)}
