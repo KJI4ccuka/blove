@@ -10,7 +10,7 @@ import { Container } from '@/shared/components/ui/container'
 
 export default function InitDataPage() {
   const [value, setValue] = useState('')
-  const [gender, setGender] = useState()
+  const [gender, setGender] = useState<any>()
   const initDataState = useSignal(initData.state)
 
   if (!initDataState?.user?.username) {
@@ -59,7 +59,6 @@ export default function InitDataPage() {
 
         <List className={'w-full'}>
           <Section
-            footer="The official Telegram app is available for Android, iPhone, iPad, Windows, macOS and Linux."
             header="Personal Information"
           >
             <Input
@@ -81,7 +80,7 @@ export default function InitDataPage() {
 
             <Multiselect
               options={genderOptions}
-              value={genderOptions}
+              value={gender}
               onChange={(selected: any) => setGender(selected)}
               closeDropdownAfterSelect={true}
               header="Show me"

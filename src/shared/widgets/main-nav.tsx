@@ -12,9 +12,15 @@ interface IProps {
 
 const NAV_ITEMS = [
   {
+    id: 'Reg',
+    text: 'Reg',
+    href: 'registration',
+    Icon: Icon24Heart
+  },
+  {
     id: 'Liked',
     text: 'Liked',
-    href: 'registration',
+    href: '',
     Icon: Icon24Heart
   },
   {
