@@ -51,11 +51,13 @@ export const Navigation: React.FC<IProps> = ({ className }) => {
     router.push(href)
   }
 
+  console.log(isIphone === 'ios')
+
   return (
     <Tabbar>
       {NAV_ITEMS.map(({ id, text, href, Icon }) => (
         <Tabbar.Item
-          className={!isIphone ? 'mb-5' : ''}
+          className={isIphone === 'ios' ? 'mb-5' : ''}
           key={id}
           text={text}
           selected={currentPage === href}
