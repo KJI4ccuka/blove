@@ -24,7 +24,7 @@ export default function InitDataPage() {
     <Page>
       <Container className={'flex flex-col items-center pt-4'}>
 
-        <UserAvatar/>
+        <UserAvatar />
 
         <List className={'w-full'}>
           <Section

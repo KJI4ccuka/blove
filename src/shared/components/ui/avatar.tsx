@@ -39,10 +39,12 @@ export const UserAvatar: React.FC<IProps> = ({ className }) => {
   }
 
   return (
-    <Avatar
-      size={96}
-      src={photoUrl}
-      acronym={getUserName()}
-    />
+    <div className={className}>
+      <Avatar
+        size={96}
+        src={photoUrl}
+        acronym={getUserName()}
+      />   
+    </div>
   )
 }

@@ -56,5 +56,4 @@ html {
 body {
   box-sizing: border-box;
   text-rendering: optimizeSpeed;
-  background: var(--tg-theme-secondary-bg-color);
 }

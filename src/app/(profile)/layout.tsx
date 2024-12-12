@@ -1,4 +1,5 @@
 import React from 'react'
+import { Navigation } from '@/shared/widgets/main-nav'
 
 export default function Layout({ children }: {
   children: React.ReactNode
@@ -6,7 +7,7 @@ export default function Layout({ children }: {
   return (
     <>
       {children}
-      {/*<Navigation/>*/}
+      <Navigation/>
     </>
   )
 }
