@@ -1,6 +1,7 @@
 import React from 'react'
 import { initData, useSignal } from '@telegram-apps/sdk-react'
 import { Avatar } from '@telegram-apps/telegram-ui'
+import { cn } from '@/shared/components/ui/utils'
 
 interface IProps {
   className?: string
@@ -39,7 +40,7 @@ export const UserAvatar: React.FC<IProps> = ({ className }) => {
   }
 
   return (
-    <div className={className}>
+    <div className={cn('', className)}>
       <Avatar
         size={96}
         src={photoUrl}
