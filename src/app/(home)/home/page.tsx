@@ -7,6 +7,7 @@ export default function Home() {
   return (
     <Page back={false}>
       home
+
     </Page>
   )
 }

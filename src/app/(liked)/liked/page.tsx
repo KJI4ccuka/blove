@@ -4,6 +4,7 @@ import { Page } from '@/shared/components/page'
 import { Container } from '@/shared/components/ui/container'
 import { Text, Title } from '@telegram-apps/telegram-ui'
 import { LikedAvatarsStack, LikedCells } from '@/shared/components/liked'
+import { LikedTabs } from '@/shared/components/liked/_ui/liked-tabs'
 
 export default function Home() {
 
@@ -20,8 +21,9 @@ export default function Home() {
 
         <LikedAvatarsStack />
 
-        <LikedCells />
+        <LikedTabs />
 
+        <LikedCells />
       </Container>
     </Page>
   )

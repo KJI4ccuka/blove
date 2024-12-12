@@ -34,16 +34,19 @@ export const LikedCells: React.FC<IProps> = ({ className }) => {
   }, [])
 
   return (
-    <div className={cn(className, 'grid grid-cols-2 gap-2 px-2 mt-8')}>
-      {usersWhoLiked.map((item, key) => (
-        <SkeletonLikedCells
-          key={key}
-          isLoad={isLoading}
-        >
-          <Card type="ambient">
+    <div className={cn(className, 'grid grid-cols-2 gap-3 px-2 mt-3 pb-24')}>
+      {isLoading ?
+        new Array(4).fill(null).map((_, key) => (
+          <SkeletonLikedCells key={key} isLoad={isLoading} />
+        ))
+
+        : usersWhoLiked.map((item, key) => (
+          <Card key={key} type="ambient">
             <>
               <CardChip readOnly>
-                {isOnline ? 'Online' : 'Offline'}
+                <span className={'text-sm'}>
+                  {isOnline ? 'Online' : 'Offline'}
+                </span>
               </CardChip>
 
               <img
@@ -51,9 +54,9 @@ export const LikedCells: React.FC<IProps> = ({ className }) => {
                 src={item.avatarUrl}
                 style={{
                   display: 'block',
-                  height: 220,
+                  height: 224,
                   objectFit: 'cover',
-                  width: 200
+                  width: 208
                 }}
               />
               <CardCell
@@ -65,9 +68,7 @@ export const LikedCells: React.FC<IProps> = ({ className }) => {
               </CardCell>
             </>
           </Card>
-        </SkeletonLikedCells>
-      ))}
-
+        ))}
     </div>
   )
 }
