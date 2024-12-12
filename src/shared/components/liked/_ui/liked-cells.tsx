@@ -85,7 +85,8 @@ export const LikedCells: React.FC<IProps> = ({ className }) => {
             New York
           </CardCell>
         </>
-      </Card> <Card type="ambient">
+      </Card>
+      <Card type="ambient">
         <>
           <CardChip readOnly>
             {isOnline ? 'Online' : 'Offline'}

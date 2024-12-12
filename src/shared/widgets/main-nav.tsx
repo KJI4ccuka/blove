@@ -5,6 +5,7 @@ import { usePathname, useRouter } from 'next/navigation'
 
 import { Tabbar } from '@telegram-apps/telegram-ui'
 import { Icon24Globe, Icon24Heart, Icon24Person } from '@/shared/icons/icons'
+import { useLaunchParams } from '@telegram-apps/sdk-react'
 
 interface IProps {
   className?: string
@@ -38,8 +39,13 @@ const NAV_ITEMS = [
 ]
 
 export const Navigation: React.FC<IProps> = ({ className }) => {
+
+  const lp = useLaunchParams()
   const currentPage = usePathname()
+
   const router = useRouter()
+
+  const isIphone = ['macos', 'ios'].includes(lp.platform) ? 'ios' : 'base'
 
   const handleTabClick = (id: string, href: string) => {
     router.push(href)
@@ -49,6 +55,7 @@ export const Navigation: React.FC<IProps> = ({ className }) => {
     <Tabbar>
       {NAV_ITEMS.map(({ id, text, href, Icon }) => (
         <Tabbar.Item
+          className={!isIphone ? 'mb-5' : ''}
           key={id}
           text={text}
           selected={currentPage === href}
