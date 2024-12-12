@@ -1,7 +1,7 @@
 'use client'
 
-import React, { useState } from 'react'
-import { useRouter } from 'next/navigation'
+import React from 'react'
+import { usePathname, useRouter } from 'next/navigation'
 
 import { Tabbar } from '@telegram-apps/telegram-ui'
 import { Icon24Globe, Icon24Heart, Icon24Person } from '@/shared/icons/icons'
@@ -20,7 +20,7 @@ const NAV_ITEMS = [
   {
     id: 'Liked',
     text: 'Liked',
-    href: '',
+    href: '/liked',
     Icon: Icon24Heart
   },
   {
@@ -38,11 +38,10 @@ const NAV_ITEMS = [
 ]
 
 export const Navigation: React.FC<IProps> = ({ className }) => {
-  const [currentTab, setCurrentTab] = useState(NAV_ITEMS[1].id)
+  const currentPage = usePathname()
   const router = useRouter()
 
   const handleTabClick = (id: string, href: string) => {
-    setCurrentTab(id)
     router.push(href)
   }
 
@@ -52,7 +51,7 @@ export const Navigation: React.FC<IProps> = ({ className }) => {
         <Tabbar.Item
           key={id}
           text={text}
-          selected={id === currentTab}
+          selected={currentPage === href}
           onClick={() => handleTabClick(id, href)}
         >
           <Icon />
