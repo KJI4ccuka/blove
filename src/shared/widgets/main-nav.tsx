@@ -13,12 +13,6 @@ interface IProps {
 
 const NAV_ITEMS = [
   {
-    id: 'Reg',
-    text: 'Reg',
-    href: 'registration',
-    Icon: Icon24Heart
-  },
-  {
     id: 'Liked',
     text: 'Liked',
     href: '/liked',
@@ -51,13 +45,11 @@ export const Navigation: React.FC<IProps> = ({ className }) => {
     router.push(href)
   }
 
-  console.log(isIphone === 'ios')
-
   return (
     <Tabbar>
       {NAV_ITEMS.map(({ id, text, href, Icon }) => (
         <Tabbar.Item
-          className={isIphone === 'ios' ? 'mb-5' : ''}
+          className={isIphone === 'ios' ? 'mb-6' : ''}
           key={id}
           text={text}
           selected={currentPage === href}
