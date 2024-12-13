@@ -2,7 +2,6 @@
 
 import {
   Cell,
-  FileInput,
   Headline,
   IconButton,
   IconContainer,
@@ -32,18 +31,19 @@ export default function InitDataPage() {
 
   const genderOptions = [
     { value: 'Male', label: 'Male' },
-    { value: 'Female', label: 'Female' },
+    { value: 'Female', label: 'Female' }
   ]
 
   return (
     <Page>
       <Container className={'flex flex-col items-center mt-6 mb-24 relative'}>
 
-        <UserAvatar className={'mb-2'}/>
+        <UserAvatar className={'mb-2'} />
+
         <Headline
           weight="2"
         >
-          {`${initDataState?.user?.firstName}  ${initDataState?.user?.lastName}` }
+          {`${initDataState?.user?.firstName}  ${initDataState?.user?.lastName}`}
         </Headline>
         <Subheadline
           level="2"
@@ -52,13 +52,7 @@ export default function InitDataPage() {
           19 old
         </Subheadline>
 
-        <FileInput
-          label="Edit avatar"
-          multiple
-          onChange={function noRefCheck(){}}
-        />
-
-        <div className={'absolute right-2.5 -top-4'}>
+        <div className={'absolute right-3 -top-3'}>
           <IconButton
             className={'rounded-full'}
             mode="bezeled"
@@ -68,9 +62,9 @@ export default function InitDataPage() {
           </IconButton>
         </div>
 
-        <List>
+        <List className={'w-full'}>
           <Section
-            footer="The official Telegram app is available for Android, iPhone, iPad, Windows, macOS and Linux."
+
             header="Profile settings"
           >
             <Cell before={<IconContainer><Icon28Chat /></IconContainer>}>

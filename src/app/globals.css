@@ -58,3 +58,8 @@ body {
   text-rendering: optimizeSpeed;
   background: var(--tg-theme-secondary-bg-color);
 }
+
+.tgui-a8ce18a8594cea9b {
+  gap: 0;
+  padding: 5px 24px 10px 24px
+}
