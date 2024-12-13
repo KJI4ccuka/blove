@@ -56,11 +56,6 @@ export const Navigation: React.FC<IProps> = ({ className }) => {
           selected={currentPage === href}
           onClick={() => handleTabClick(id, href)}
         >
-          {id === 'Liked' &&
-          <div className={'absolute right-10 top-2.5 rounded-full w-1.5 h-1.5 bg-foreground animate-pulse'}>
-
-          </div>
-          }
           <Icon />
         </Tabbar.Item>
       ))}
