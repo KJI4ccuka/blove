@@ -3,12 +3,14 @@
 import {
   Cell,
   FileInput,
+  Headline,
   IconButton,
   IconContainer,
   Input,
   List,
   Multiselect,
   Section,
+  Subheadline,
   Tappable
 } from '@telegram-apps/telegram-ui'
 
@@ -28,7 +30,6 @@ export default function InitDataPage() {
   const [gender, setGender] = useState<any>()
   const initDataState = useSignal(initData.state)
 
-
   const genderOptions = [
     { value: 'Male', label: 'Male' },
     { value: 'Female', label: 'Female' },
@@ -38,7 +39,18 @@ export default function InitDataPage() {
     <Page>
       <Container className={'flex flex-col items-center mt-6 mb-24 relative'}>
 
-        <UserAvatar className={'mb-4'}/>
+        <UserAvatar className={'mb-2'}/>
+        <Headline
+          weight="2"
+        >
+          {`${initDataState?.user?.firstName}  ${initDataState?.user?.lastName}` }
+        </Headline>
+        <Subheadline
+          level="2"
+          weight="3"
+        >
+          19 old
+        </Subheadline>
 
         <FileInput
           label="Edit avatar"
@@ -55,7 +67,7 @@ export default function InitDataPage() {
             <Icon24Notifications />
           </IconButton>
         </div>
-        
+
         <List>
           <Section
             footer="The official Telegram app is available for Android, iPhone, iPad, Windows, macOS and Linux."
